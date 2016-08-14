@@ -67,10 +67,10 @@ public class FileBasedDeployAndRetrieve extends Thread {
     			DeploymentStatus.setMessage((this.deploymentInfo.isValidateOnly?"Validation":"Deployment")+" is in progress.");    			
     			deployZip();            		    			
     		}catch(Exception ex){
+    			DeploymentStatus.setMessage(ex.getMessage());
     			ex.printStackTrace();
     		}finally{
-    			DeploymentStatus.setIsDeploymentInProgress(false);
-    			
+    			DeploymentStatus.setIsDeploymentInProgress(false);    			
     		}
     	}
     }

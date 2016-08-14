@@ -73,7 +73,7 @@ public class DeployCode extends HttpServlet {
     	   status = "DeploymentStarted";
 	       
 	       try {
-	    	    DeploymentStatus.setMessage("Fetching metada for deployment..");
+	    	    DeploymentStatus.setMessage("Fetching metadata for deployment..");
 	    	    DeploymentInfo deploymentInfo = getDeploymentInfo(jb.toString());    	
 	    	    fileBasedDeployAndRetrieve.setDeploymentInfo(deploymentInfo);
 	       		fileBasedDeployAndRetrieve.setPackageXMLAsString(StringEscapeUtils.unescapeXml(deploymentInfo.packageXML));
@@ -83,6 +83,7 @@ public class DeployCode extends HttpServlet {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				throw new  ServletException(e);
 			}
 		
        }
